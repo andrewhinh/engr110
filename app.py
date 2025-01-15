@@ -13,6 +13,14 @@ PARENT_PATH = Path(__file__).parent
 
 def get_app():  # noqa: C901
     # setup
+    page_cls = (
+        "flex flex-col justify-between min-h-screen w-full bg-zinc-900 text-slate-100 font-mono font-family:Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New'",
+    )
+    main_ctnr_cls = "flex flex-col justify-center items-center grow gap-8 p-8"
+    page_ctnt_cls = "w-full md:w-2/3 flex flex-col justify-center items-center gap-8"
+    grid_cls = "grid grid-cols-2 md:flex md:flex-row items-center gap-4 md:gap-8"
+    link_cls = "text-blue-300 hover:text-blue-100"
+
     def _not_found(req, exc):
         message = "Page not found!"
         typing_steps = len(message)
@@ -29,11 +37,11 @@ def get_app():  # noqa: C901
                             style=f"animation: typing 2s steps({typing_steps}, end), blink-caret .75s step-end infinite",
                         ),
                     ),  # to contain typing animation
-                    cls="flex flex-col justify-center items-center grow gap-4 p-8",
+                    cls=main_ctnr_cls,
                 ),
                 toast_container(),
                 footer(),
-                cls="flex flex-col justify-between min-h-screen text-slate-100 bg-zinc-900 w-full",
+                cls=page_cls,
             ),
         )
 
@@ -74,15 +82,10 @@ def get_app():  # noqa: C901
         allow_headers=["*"],
     )
 
-    page_cls = (
-        "flex flex-col justify-between min-h-screen w-full bg-zinc-900 text-slate-100 font-mono font-family:Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New'",
-    )
-    link_cls = "text-blue-300 hover:text-blue-100"
-
     ## layout
     def nav():
         return fh.Nav(
-            fh.A("home", href="/", cls="text-xl " + link_cls),
+            fh.A("home", href="/", cls="text-lg " + link_cls),
             fh.Svg(
                 fh.NotStr(
                     """<style>
@@ -118,12 +121,17 @@ def get_app():  # noqa: C901
                 """
                 ),
                 id="spinner",
-                cls="htmx-indicator w-8 h-8 absolute top-12 md:top-6 left-1/2 transform -translate-x-1/2 fill-blue-300",
+                cls="htmx-indicator w-8 h-8 absolute top-32 md:top-6 left-1/2 transform -translate-x-1/2 fill-blue-300",
             ),
             fh.Div(
                 fh.A(
-                    "about me",
-                    href="/about-me",
+                    "about us",
+                    href="/about-us",
+                    cls="text-lg " + link_cls,
+                ),
+                fh.A(
+                    "partner",
+                    href="/partner",
                     cls="text-lg " + link_cls,
                 ),
                 fh.A(
@@ -131,60 +139,134 @@ def get_app():  # noqa: C901
                     href="/project",
                     cls="text-lg " + link_cls,
                 ),
-                cls="flex items-center gap-4 md:gap-8",
+                fh.A(
+                    "blog",
+                    href="/blog",
+                    cls="text-lg " + link_cls,
+                ),
+                cls="text-right md:text-left " + grid_cls,
             ),
-            cls="flex justify-between items-center p-4 relative",
+            cls="flex justify-between p-4 relative",
         )
 
-    def main_content(
-        session,
-    ):
+    def home_content():
+        return fh.Main(
+            fh.Div(
+                fh.P("Hi, we're Gigi Patmore, Andrew Hinh, Anastasiia Statcenko, and Pranav Chainani."),
+                fh.P(
+                    "This is our website for SCU's Community-Based Engineering (ENGR 110) class project.",
+                ),
+                fh.P("Check out the links above in the navigation bar for more."),
+                cls=page_ctnt_cls,
+            ),
+            cls=main_ctnr_cls,
+        )
+
+    def about_content():
         return fh.Main(
             fh.Div(
                 fh.P(
-                    "Hi, I'm Andrew.",
-                ),
-                fh.P(
-                    "This is my website for SCU's ENGR 110 class.",
-                ),
-                fh.P("Check out the links above for more."),
-                cls="w-full md:w-2/3 flex flex-col gap-4 justify-center items-center",
-            ),
-            cls="flex flex-col justify-center items-center grow gap-4 p-8",
-        )
-
-    def about_content(
-        session,
-    ):
-        return fh.Main(
-            fh.Div(
-                fh.P(
-                    "I'm a 3rd year CSEN student at SCU.",
+                    "I'm Andrew Hinh, a 3rd year CSEN student at SCU focusing on ML/DL. In my free time, I enjoy cooking, gaming, and rock climbing.",
                 ),
                 fh.Img(
-                    src="/profile.jpeg",
+                    src="/assets/profile.jpeg",
                     alt="Profile Picture",
                     cls="max-h-60 max-w-60 object-contain",
                 ),
-                cls="w-full md:w-2/3 flex flex-col gap-4 justify-center items-center",
+                cls=page_ctnt_cls,
             ),
-            cls="flex flex-col justify-center items-center grow gap-4 p-8",
+            cls=main_ctnr_cls,
         )
 
-    def project_content(session):
+    def partner_content():
         return fh.Main(
+            fh.Div(
+                fh.P(
+                    "Partner:",
+                ),
+                cls=page_ctnt_cls,
+            ),
+            cls=main_ctnr_cls,
+        )
+
+    def project_content():
+        return fh.Main(
+            fh.Div(
+                fh.P(
+                    "1/21/25",
+                ),
+                fh.P("Team Info:"),
+                fh.Ul(
+                    fh.Li("Activities:"),
+                    fh.Img(src="/assets/gantt-chart.png", alt="Gantt Chart", cls="object-contain"),
+                    fh.Li("Reflection:"),
+                ),
+                fh.P("Team Documentation:"),
+                cls=page_ctnt_cls,
+            ),
             fh.Div(
                 fh.P(
                     "1/14/25",
                 ),
                 fh.P(
-                    "This is my first choice partner because I really enjoy working on AI, especially when applied to healthcare.",
+                    "(Andrew Hinh) This is my first choice partner because I really enjoy working on AI, especially when applied to healthcare.",
                 ),
-                fh.Img(src="/hw1.png", cls="object-contain"),
-                # TODO: fh.Embed(src="/hw1.pdf", type="application/pdf", width="100%", height="500px"),
-                cls="w-full md:w-2/3 flex flex-col gap-4 justify-center items-center",
+                fh.Img(src="/assets/hw1.png", alt="HW1", cls="object-contain"),
+                # TODO: fh.Embed(src="/assets/hw1.pdf", alt="HW1", type="application/pdf", width="100%", height="500px"),
+                cls=page_ctnt_cls,
             ),
-            cls="flex flex-col justify-center items-center grow gap-4 p-8",
+            cls=main_ctnr_cls,
+        )
+
+    def blog_content():
+        return fh.Main(
+            fh.Div(
+                fh.Div(
+                    fh.A("Gigi Patmore", href="/blog/gigi", cls="text-md " + link_cls),
+                    fh.A("Andrew Hinh", href="/blog/andrew", cls="text-md " + link_cls),
+                    fh.A("Anastasiia Statcenko", href="/blog/anastasiia", cls="text-md " + link_cls),
+                    fh.A("Pranav Chainani", href="/blog/pranav", cls="text-md " + link_cls),
+                    cls="text-center " + grid_cls,
+                ),
+                cls=page_ctnt_cls,
+            ),
+            cls=main_ctnr_cls,
+        )
+
+    def gigi_blog_content():
+        return fh.Main(
+            fh.Div(
+                fh.P("Gigi Patmore"),
+                cls=page_ctnt_cls,
+            ),
+            cls=main_ctnr_cls,
+        )
+
+    def andrew_blog_content():
+        return fh.Main(
+            fh.Div(
+                fh.P("Andrew Hinh"),
+                cls=page_ctnt_cls,
+            ),
+            cls=main_ctnr_cls,
+        )
+
+    def anastasiia_blog_content():
+        return fh.Main(
+            fh.Div(
+                fh.P("Anastasiia Statcenko"),
+                cls=page_ctnt_cls,
+            ),
+            cls=main_ctnr_cls,
+        )
+
+    def pranav_blog_content():
+        return fh.Main(
+            fh.Div(
+                fh.P("Pranav Chainani"),
+                cls=page_ctnt_cls,
+            ),
+            cls=main_ctnr_cls,
         )
 
     def toast_container():
@@ -201,14 +283,14 @@ def get_app():  # noqa: C901
                 ),
                 cls="flex flex-col text-right gap-0.5",
             ),
-            cls="flex justify-end items-center p-4 text-sm md:text-lg",
+            cls="flex justify-end items-center p-4 text-lg",
         )
 
     # routes
     ## for images, CSS, etc.
     @f_app.get("/{fname:path}.{ext:static}")
     def static_files(fname: str, ext: str):
-        static_file_path = PARENT_PATH / f"{fname}.{ext}"
+        static_file_path = PARENT_PATH / "assets" / f"{fname}.{ext}"
         if static_file_path.exists():
             return fh.FileResponse(static_file_path)
 
@@ -227,32 +309,37 @@ def get_app():  # noqa: C901
             fh.Title(NAME),
             fh.Div(
                 nav(),
-                main_content(session),
+                home_content(),
                 toast_container(),
                 footer(),
                 cls=page_cls,
             ),
-            fh.Script(
-                """
-                document.addEventListener('htmx:beforeRequest', (event) => {
-                    if (event.target.id === 'export-gens-csv') {
-                        event.preventDefault();
-                        window.location.href = "/export-gens";
-                    }
-                });
-            """
-            ),
         )
 
-    @f_app.get("/about-me")
-    def about_me(
+    @f_app.get("/about-us")
+    def about_us(
         session,
     ):
         return (
-            fh.Title(NAME + " | " + "about me"),
+            fh.Title(NAME + " | " + "about us"),
             fh.Div(
                 nav(),
-                about_content(session),
+                about_content(),
+                toast_container(),
+                footer(),
+                cls=page_cls,
+            ),
+        )
+
+    @f_app.get("/partner")
+    def partner(
+        session,
+    ):
+        return (
+            fh.Title(NAME + " | " + "partner"),
+            fh.Div(
+                nav(),
+                partner_content(),
                 toast_container(),
                 footer(),
                 cls=page_cls,
@@ -267,7 +354,41 @@ def get_app():  # noqa: C901
             fh.Title(NAME + " | " + "project"),
             fh.Div(
                 nav(),
-                project_content(session),
+                project_content(),
+                toast_container(),
+                footer(),
+                cls=page_cls,
+            ),
+        )
+
+    @f_app.get("/blog")
+    def blog(
+        session,
+    ):
+        return (
+            fh.Title(NAME + " | " + "blog"),
+            fh.Div(
+                nav(),
+                blog_content(),
+                toast_container(),
+                footer(),
+                cls=page_cls,
+            ),
+        )
+
+    @f_app.get("/blog/{name}")
+    def personal_blog(session, name: str):
+        return (
+            fh.Title(NAME + " | " + name),
+            fh.Div(
+                nav(),
+                gigi_blog_content()
+                if name == "gigi"
+                else andrew_blog_content()
+                if name == "andrew"
+                else anastasiia_blog_content()
+                if name == "anastasiia"
+                else pranav_blog_content(),
                 toast_container(),
                 footer(),
                 cls=page_cls,
@@ -289,7 +410,7 @@ IMAGE = (
         "python-fasthtml==0.6.10",
         "sqlite-minutils==4.0.3",  # needed for fasthtml
     )
-    .copy_local_dir(PARENT_PATH / "assets", "/root")
+    .copy_local_dir(PARENT_PATH / "assets", "/root/assets")
 )
 MINUTES = 60  # seconds
 FE_TIMEOUT = 5 * MINUTES
