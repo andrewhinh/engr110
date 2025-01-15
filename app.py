@@ -16,9 +16,9 @@ def get_app():  # noqa: C901
     page_cls = (
         "flex flex-col justify-between min-h-screen w-full bg-zinc-900 text-slate-100 font-mono font-family:Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New'",
     )
-    main_ctnr_cls = "flex flex-col justify-center items-center grow gap-8 p-8"
+    main_ctnr_cls = "flex flex-col justify-center items-center grow gap-16 p-8"
     page_ctnt_cls = "w-full md:w-2/3 flex flex-col justify-center items-center gap-8"
-    grid_cls = "grid grid-cols-2 md:flex md:flex-row items-center gap-4 md:gap-8"
+    grid_cls = "grid grid-cols-2 md:flex md:flex-row items-center md:gap-8"
     link_cls = "text-blue-300 hover:text-blue-100"
 
     def _not_found(req, exc):
@@ -144,7 +144,7 @@ def get_app():  # noqa: C901
                     href="/blog",
                     cls="text-lg " + link_cls,
                 ),
-                cls="text-right md:text-left " + grid_cls,
+                cls="text-right md:text-left gap-4 " + grid_cls,
             ),
             cls="flex justify-between p-4 relative",
         )
@@ -169,8 +169,30 @@ def get_app():  # noqa: C901
                     "I'm Andrew Hinh, a 3rd year CSEN student at SCU focusing on ML/DL. In my free time, I enjoy cooking, gaming, and rock climbing.",
                 ),
                 fh.Img(
-                    src="/assets/profile.jpeg",
-                    alt="Profile Picture",
+                    src="/assets/andrew.jpeg",
+                    alt="Andrew's Profile Picture",
+                    cls="max-h-60 max-w-60 object-contain",
+                ),
+                cls=page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
+                    "Hi, my name is Pranav Chainani and I am a third-year Electrical and Computer Engineering major at Santa Clara University. My interests include circuit design, and artificial intelligence in embedded systems. I have experience as a Product Manager as I am going to embark on my third internship at Microsoft as a Product Manager Intern. My hobbies include hiking, playing basketball, and watching crime thrillers.",
+                ),
+                fh.Img(
+                    src="/assets/pranav.jpeg",
+                    alt="Pranav's Profile Picture",
+                    cls="max-h-60 max-w-60 object-contain",
+                ),
+                cls=page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
+                    "Hi! My name is Gigi and I am a Junior Electrical and Computer Engineering Major. I like to experiment with robotics and computer science, especially using Python and C. On campus, I am involved in the Society of Women Engineers (SWE), and in my free time, I like to travel, read, and spend time with friends.",
+                ),
+                fh.Img(
+                    src="/assets/gigi.jpeg",
+                    alt="Gigi's Profile Picture",
                     cls="max-h-60 max-w-60 object-contain",
                 ),
                 cls=page_ctnt_cls,
@@ -182,7 +204,20 @@ def get_app():  # noqa: C901
         return fh.Main(
             fh.Div(
                 fh.P(
-                    "Partner:",
+                    "The ",
+                    fh.A(
+                        "Maternal Health Foundation",
+                        href="https://maternalhealthfoundation.org",
+                        cls=link_cls,
+                    ),
+                    """ (MHF) is a foundation working to decrease the rate of childbirth injuries suffered by women in sub-Saharan Africa. They work directly with these women through local healthcare clinics which they provide funding, allowing for both a higher quality of care and numerous classes educating women on pre and postnatal care. This holistic approach allows for both in-the-moment mitigation of injuries as well as long-term benefits by teaching preventative measures and educating the community as a whole on childbirth injuries. Educational outreach such as this is also key to the reintegration of women with previous childbirth injuries, as without proper care and information these women would continue to suffer. MHF also works with other local organizations such as the """,
+                    fh.A("Terrewode Women's Hospital", href="https://terrewode.org/", cls=link_cls),
+                    " in Uganda and ",
+                    fh.A("Fistula e.V", href="https://www.fistula.de/", cls=link_cls),
+                    " which both share similar goals of improving maternal health in sub-Saharan Africa. ",
+                ),
+                fh.Iframe(
+                    src="https://www.youtube.com/embed/FpMZB5JoQJc", title="Fistula: An MHF Film", cls="w-full h-96"
                 ),
                 cls=page_ctnt_cls,
             ),
@@ -226,7 +261,7 @@ def get_app():  # noqa: C901
                     fh.A("Andrew Hinh", href="/blog/andrew", cls="text-md " + link_cls),
                     fh.A("Anastasiia Statcenko", href="/blog/anastasiia", cls="text-md " + link_cls),
                     fh.A("Pranav Chainani", href="/blog/pranav", cls="text-md " + link_cls),
-                    cls="text-center " + grid_cls,
+                    cls="text-center gap-16 " + grid_cls,
                 ),
                 cls=page_ctnt_cls,
             ),
