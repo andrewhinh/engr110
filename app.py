@@ -197,6 +197,17 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            fh.Div(
+                fh.P(
+                    "Hello there! My name is Anastasiia Statcenko, and I am a junior studying Computer Science and Engineering at Santa Clara University. I enjoy working on projects that combine my passion for programming and hardware, such as building an Autonomous Whack-A-Mole Robot or SQL-like Parser Client in C++. On campus, I am involved in Acapella and Choir. Outside of academics, I love reading philosophy and writing music.",
+                ),
+                fh.Img(
+                    src="/assets/stasiia.jpeg",
+                    alt="Stasiia's Profile Picture",
+                    cls="max-h-60 max-w-60 object-contain",
+                ),
+                cls=page_ctnt_cls,
+            ),
             cls=main_ctnr_cls,
         )
 
@@ -445,7 +456,7 @@ IMAGE = (
         "python-fasthtml==0.6.10",
         "sqlite-minutils==4.0.3",  # needed for fasthtml
     )
-    .copy_local_dir(PARENT_PATH / "assets", "/root/assets")
+    .add_local_dir(PARENT_PATH / "assets", "/root/assets")
 )
 MINUTES = 60  # seconds
 FE_TIMEOUT = 5 * MINUTES
