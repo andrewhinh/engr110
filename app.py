@@ -228,7 +228,7 @@ def get_app():  # noqa: C901
                     " which both share similar goals of improving maternal health in sub-Saharan Africa. ",
                 ),
                 fh.Iframe(
-                    src="https://www.youtube.com/embed/FpMZB5JoQJc", title="Fistula: An MHF Film", cls="w-full h-96"
+                    src="https://www.youtube.com/embed/FpMZB5JoQJc", title="Fistula: An MHF Film", cls="w-full h-svh"
                 ),
                 cls=page_ctnt_cls,
             ),
@@ -241,13 +241,11 @@ def get_app():  # noqa: C901
                 fh.P(
                     "1/21/25",
                 ),
-                fh.P("Team Info:"),
-                fh.Ul(
-                    fh.Li("Activities:"),
-                    fh.Img(src="/assets/gantt-chart.png", alt="Gantt Chart", cls="object-contain"),
-                    fh.Li("Reflection:"),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/10kcv6oVMq7zuYKKo7lvAn_Op-l7MLTtJ-fdiTl1NryM/edit?usp=sharing?embedded=true",
+                    title="Week 2 Team Activities and Documentation",
+                    cls="w-full h-svh",
                 ),
-                fh.P("Team Documentation:"),
                 cls=page_ctnt_cls,
             ),
             fh.Div(
@@ -257,8 +255,11 @@ def get_app():  # noqa: C901
                 fh.P(
                     "(Andrew Hinh) This is my first choice partner because I really enjoy working on AI, especially when applied to healthcare.",
                 ),
-                fh.Img(src="/assets/hw1.png", alt="HW1", cls="object-contain"),
-                # TODO: fh.Embed(src="/assets/hw1.pdf", alt="HW1", type="application/pdf", width="100%", height="500px"),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/14YZgGb4Hw2yzWcnKXt-fEAJYrAUGvkSgd10AhLYwkW4/edit?usp=drive_link?embedded=true",
+                    title="Andrew's CP Research",
+                    cls="w-full h-svh",
+                ),
                 cls=page_ctnt_cls,
             ),
             cls=main_ctnr_cls,
