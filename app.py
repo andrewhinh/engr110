@@ -159,6 +159,8 @@ def get_app():  # noqa: C901
                 fh.P("Check out the links above in the navigation bar for more."),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -208,6 +210,8 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -232,6 +236,8 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -239,7 +245,49 @@ def get_app():  # noqa: C901
         return fh.Main(
             fh.Div(
                 fh.P(
+                    "1/28/25",
+                ),
+                fh.P("This week, we:"),
+                fh.Ul(
+                    fh.Li("Scheduled a meeting with our community partner to discuss proposed datasets we will use."),
+                    fh.Li("Revised our Gantt chart to include more details."),
+                    fh.Li("Created a team contract."),
+                    fh.Li(
+                        "Scheduled another meeting with our community partner to discuss proposed solutions and next steps."
+                    ),
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/1wMQcTuM_cb2Ur1VsG8rVsLqLigFYQLwoaBg-8dgU9Nk/edit?usp=drive_link?embedded=true",
+                    title="Week 3 Dataset Proposal",
+                    cls="w-full h-svh",
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/spreadsheets/d/1xF2eMSg26GFkbdGwVVUvcIv7fqNWWWDsGyeHeZoppdU/edit?usp=drive_link?embedded=true",
+                    title="Week 3 Gantt Chart",
+                    cls="w-full h-svh",
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/1KObr86ITkrr6Qc9P0LxuaFamLGa7eYNdOq9UDD2aIAI/edit?usp=drive_link?embedded=true",
+                    title="Week 3 Team Contract",
+                    cls="w-full h-svh",
+                ),
+                cls=page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
                     "1/21/25",
+                ),
+                fh.P("This week, we:"),
+                fh.Ul(
+                    fh.Li(
+                        "Scheduled a meeting with our community partner, and drafted questions and curated datasets in preparation."
+                    ),
+                    fh.Li("Met with our community partner and collected extensive notes."),
+                    fh.Li("Estimated our project timeline by creating a Gantt chart."),
+                    fh.Li("Created a new GH repo for all of our work we will share with our community partner."),
+                    fh.Li(
+                        "Scheduled another meeting with our community partner to discuss the project timeline and next steps."
+                    ),
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/document/d/1UrzQ3rnxGRUNtGPX4nH8FHaKZ-VpXASbr3uJJ8OQVZw/edit?usp=drive_link?embedded=true",
@@ -262,6 +310,8 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -277,6 +327,8 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -293,6 +345,8 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -312,6 +366,8 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -328,6 +384,8 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -344,6 +402,8 @@ def get_app():  # noqa: C901
                 ),
                 cls=page_ctnt_cls,
             ),
+            hx_indicator="#spinner",
+            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
