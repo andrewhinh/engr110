@@ -140,7 +140,7 @@ def get_app():  # noqa: C901
                     cls="text-lg " + link_cls,
                 ),
                 fh.A(
-                    "blog",
+                    "andrew's blog",
                     href="/blog",
                     cls="text-lg " + link_cls,
                 ),
@@ -249,6 +249,15 @@ def get_app():  # noqa: C901
                 ),
                 fh.P("This week, we:"),
                 fh.Ul(
+                    fh.Li(
+                        "Came up with the following problem statement:",
+                        fh.Ul(
+                            fh.Li(
+                                "MHO’s Chief AI Officer needs a potential automated solution to suggest labels for ultrasound images because of the time and monetary cost of manual labor.",
+                                cls="p-4 list-disc list-inside",
+                            ),
+                        ),
+                    ),
                     fh.Li("Scheduled a meeting with our community partner to discuss proposed datasets we will use."),
                     fh.Li("Revised our Gantt chart to include more details."),
                     fh.Li("Created a team contract."),
@@ -318,40 +327,19 @@ def get_app():  # noqa: C901
     def blog_content():
         return fh.Main(
             fh.Div(
-                fh.Div(
-                    fh.A("Gigi Patmore", href="/blog/gigi", cls="text-md " + link_cls),
-                    fh.A("Andrew Hinh", href="/blog/andrew", cls="text-md " + link_cls),
-                    fh.A("Anastasiia Statcenko", href="/blog/anastasiia", cls="text-md " + link_cls),
-                    fh.A("Pranav Chainani", href="/blog/pranav", cls="text-md " + link_cls),
-                    cls="text-center gap-16 " + grid_cls,
+                fh.P(
+                    "1/28/25",
+                ),
+                fh.Ul(
+                    fh.Li(
+                        "Researched datasets to propose to our community partner, including ",
+                        fh.A("this dataset", href="https://www.nature.com/articles/s41597-024-03774-3", cls=link_cls),
+                        " which we will proceed with for the project.",
+                    ),
+                    fh.Li("Updated the eFolio's project and blog pages with new information."),
                 ),
                 cls=page_ctnt_cls,
             ),
-            hx_indicator="#spinner",
-            hx_trigger="load",
-            cls=main_ctnr_cls,
-        )
-
-    def gigi_blog_content():
-        return fh.Main(
-            fh.Div(
-                fh.P(
-                    "1/21/25",
-                ),
-                fh.P(
-                    """
-                    This week our team priorities were to meet with our community partner, gain a better understanding of the assigned project, and put together a plan and timeline to ensure we have a successful product by the end of the quarter. This week my contribution was attending this meeting with Pranav and Mr. Shayganfar. During the meeting, I introduced myself, asked questions about the project, and took detailed notes on a shared document so that our other team members would easily be able to catch up on what had been discussed. After the meeting, I communicated with my team following our team meeting about what had been discussed and what we should tackle individually before the meeting. At our team meeting, I shared with my teammates Mr. Shayganfar’s expectations for the project, helped spearhead the creation of a more detailed timeline, and assigned people to different phases of the project. Once it was established that I was in charge of Phase 1, I emailed Mr. Shayganfar to share with him the timeline and phase leaders and suggested meeting times for Week 3 so that we may continue into Phase 2 of the project.
-                    """
-                ),
-                cls=page_ctnt_cls,
-            ),
-            hx_indicator="#spinner",
-            hx_trigger="load",
-            cls=main_ctnr_cls,
-        )
-
-    def andrew_blog_content():
-        return fh.Main(
             fh.Div(
                 fh.P(
                     "1/21/25",
@@ -363,42 +351,6 @@ def get_app():  # noqa: C901
                     ),
                     fh.Li("Created a new GH repo for all of our work we will share with our community partner."),
                     fh.Li("Gave initial draft for distributing phases amongst team members."),
-                ),
-                cls=page_ctnt_cls,
-            ),
-            hx_indicator="#spinner",
-            hx_trigger="load",
-            cls=main_ctnr_cls,
-        )
-
-    def anastasiia_blog_content():
-        return fh.Main(
-            fh.Div(
-                fh.P(
-                    "1/21/25",
-                ),
-                fh.P(
-                    """
-                    During the second week, our team focused on scheduling the meeting with the client and figuring out the client’s desired timeline and project priorities. We had some difficulties with scheduling the meeting with the client since both we and the client were very busy. We decided to delegate 2 possible windows for the client (we attended them in pairs) so that the client can hopefully make either of the proposed time windows. Then, we made sure to delegate the task according to each team member’s background. Me and Andrew will focus on the coding part, while Gigi and Pranav will do the research and final report. All the tasks will still be completed as a team, each of us will just try to prioritize certain tasks to fully utilize our talents.
-                    """
-                ),
-                cls=page_ctnt_cls,
-            ),
-            hx_indicator="#spinner",
-            hx_trigger="load",
-            cls=main_ctnr_cls,
-        )
-
-    def pranav_blog_content():
-        return fh.Main(
-            fh.Div(
-                fh.P(
-                    "1/21/25",
-                ),
-                fh.P(
-                    """
-                    This week our team came to fruition. I reached out to the Chief AI Officer, Mahni Shayganfar,  for our community partner, the Maternal Health Foundation, to schedule a time when we could interview about our project. He started off the conversation by getting to know our interests and what we envisioned as the future of AI. I communicated how I believe that AI will not replace jobs but will augment human performance to make more accurate and precise decisions. We learned about the different phases he expects to see out of the project which allowed us to assign coordinators that will be his points of contact throughout the course. Defining the project scope and researching relevant context were action items that allowed us to gain more clarity on what the next eight weeks would look like.
-                    """
                 ),
                 cls=page_ctnt_cls,
             ),
@@ -505,29 +457,10 @@ def get_app():  # noqa: C901
         session,
     ):
         return (
-            fh.Title(NAME + " | " + "blog"),
+            fh.Title(NAME + " | " + "andrew's blog"),
             fh.Div(
                 nav(),
                 blog_content(),
-                toast_container(),
-                footer(),
-                cls=page_cls,
-            ),
-        )
-
-    @f_app.get("/blog/{name}")
-    def personal_blog(session, name: str):
-        return (
-            fh.Title(NAME + " | " + name),
-            fh.Div(
-                nav(),
-                gigi_blog_content()
-                if name == "gigi"
-                else andrew_blog_content()
-                if name == "andrew"
-                else anastasiia_blog_content()
-                if name == "anastasiia"
-                else pranav_blog_content(),
                 toast_container(),
                 footer(),
                 cls=page_cls,
