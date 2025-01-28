@@ -357,6 +357,18 @@ def get_app():  # noqa: C901
         return fh.Main(
             fh.Div(
                 fh.P(
+                    "2/4/25",
+                ),
+                fh.Ul(
+                    fh.Li(
+                        "Researched solutions to propose to our community partner.",
+                    ),
+                    fh.Li("Updated the eFolio's project and blog pages with new information."),
+                ),
+                cls=page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
                     "1/28/25",
                 ),
                 fh.Ul(
