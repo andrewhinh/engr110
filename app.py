@@ -245,6 +245,34 @@ def get_app():  # noqa: C901
         return fh.Main(
             fh.Div(
                 fh.P(
+                    "2/4/25",
+                ),
+                fh.P("This week, we:"),
+                fh.Ul(
+                    fh.Li("Researched solutions to propose to our community partner."),
+                    fh.Li(
+                        "Scheduled a meeting with our community partner to discuss proposed solutions for the project."
+                    ),
+                    fh.Li("Updated our Gantt chart."),
+                    fh.Li("Reflected on our team's progress and our project's impact."),
+                    fh.Li(
+                        "Scheduled another meeting with our community partner to discuss ranking of proposed solutions."
+                    ),
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/1QKPghn7ofOXiDgwf9LgjZudIWcZalDaYbgZFZymEgaU/edit?usp=sharing?embedded=true",
+                    title="Week 4 Solution Proposal",
+                    cls="w-full h-svh",
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/1mfdwgn7euTwjL1cV9o15PlTjvGGw1HAhCUs9rCUpKAk/edit?usp=sharing?embedded=true",
+                    title="Week 4 Design Review",
+                    cls="w-full h-svh",
+                ),
+                cls=page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
                     "1/28/25",
                 ),
                 fh.P("This week, we:"),
@@ -258,11 +286,12 @@ def get_app():  # noqa: C901
                             ),
                         ),
                     ),
+                    fh.Li("Researched datasets to propose to our community partner."),
                     fh.Li("Scheduled a meeting with our community partner to discuss proposed datasets we will use."),
                     fh.Li("Revised our Gantt chart to include more details."),
                     fh.Li("Created a team contract."),
                     fh.Li(
-                        "Scheduled another meeting with our community partner to discuss proposed solutions and next steps."
+                        "Scheduled another meeting with our community partner to discuss ranking of proposed datasets."
                     ),
                 ),
                 fh.Iframe(
