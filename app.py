@@ -249,15 +249,21 @@ def get_app():  # noqa: C901
                 ),
                 fh.P("This week, we:"),
                 fh.Ul(
-                    fh.Li("Researched solutions to propose to our community partner."),
+                    fh.Li(
+                        "Met with our community partner to discuss ranking of proposed datasets we will use. Below is the summary:",
+                        fh.Ul(
+                            fh.Li(
+                                "Mahni agreed with our ranking, and proposed his own dataset which we initially rejected due to the lack of segmentation labels. However, he now says these labels are not necessarily required.",
+                                cls="p-4 list-disc list-inside",
+                            ),
+                        ),
+                    ),
                     fh.Li(
                         "Scheduled a meeting with our community partner to discuss proposed solutions for the project."
                     ),
+                    fh.Li("Researched solutions to propose to our community partner."),
                     fh.Li("Updated our Gantt chart."),
                     fh.Li("Reflected on our team's progress and our project's impact."),
-                    fh.Li(
-                        "Scheduled another meeting with our community partner to discuss ranking of proposed solutions."
-                    ),
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/document/d/1QKPghn7ofOXiDgwf9LgjZudIWcZalDaYbgZFZymEgaU/edit?usp=sharing?embedded=true",
@@ -286,10 +292,21 @@ def get_app():  # noqa: C901
                             ),
                         ),
                     ),
+                    fh.Li(
+                        "Scheduled a meeting with our community partner to discuss proposed datasets we will use. Below is the summary:",
+                    ),
                     fh.Li("Researched datasets to propose to our community partner."),
-                    fh.Li("Scheduled a meeting with our community partner to discuss proposed datasets we will use."),
                     fh.Li("Revised our Gantt chart to include more details."),
                     fh.Li("Created a team contract."),
+                    fh.Li(
+                        "Met with our community partner to discuss proposed datasets we will use. Below is the summary:",
+                        fh.Ul(
+                            fh.Li(
+                                "Before team meeting sunday, look over your and others' datasets and rank which ones you think we should use. We’ll discuss it sunday and move forward with the top dataset to create a proposal for him for our meeting next week.",
+                                cls="p-4 list-disc list-inside",
+                            ),
+                        ),
+                    ),
                     fh.Li(
                         "Scheduled another meeting with our community partner to discuss ranking of proposed datasets."
                     ),
@@ -361,8 +378,10 @@ def get_app():  # noqa: C901
                 ),
                 fh.Ul(
                     fh.Li(
-                        "Researched solutions to propose to our community partner.",
+                        "Researched majority of solutions to propose to our community partner.",
                     ),
+                    fh.Li("Revised team contract."),
+                    fh.Li("Revised and added thoughts to team reflection."),
                     fh.Li("Updated the eFolio's project and blog pages with new information."),
                 ),
                 cls=page_ctnt_cls,
