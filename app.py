@@ -245,6 +245,24 @@ def get_app():  # noqa: C901
         return fh.Main(
             fh.Div(
                 fh.P(
+                    "2/11/25",
+                ),
+                fh.P("This week, we:"),
+                fh.Ul(
+                    fh.Li("Met with our community partner to discuss ranking of proposed solutions we will use."),
+                    fh.Li("Scheduled a meeting with our community partner to check in on our implementation progress."),
+                    fh.Li("Updated our Gantt chart."),
+                    fh.Li("Wrote the introduction for our project report."),
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/1099_lKw-ioY0NKNFFzv7Kf-yvIcjKzkDrbEGmVqU6fA/edit?usp=sharing?embedded=true",
+                    title="Week 5 Project Report Introduction",
+                    cls="w-full h-svh",
+                ),
+                cls=page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
                     "2/4/25",
                 ),
                 fh.P("This week, we:"),
@@ -372,6 +390,19 @@ def get_app():  # noqa: C901
 
     def blog_content():
         return fh.Main(
+            fh.Div(
+                fh.P(
+                    "2/11/25",
+                ),
+                fh.Ul(
+                    fh.Li(
+                        "Started work on implementation of accepted solution.",
+                    ),
+                    fh.Li("Wrote the roadmap for the project report introduction."),
+                    fh.Li("Updated the eFolio's project and blog pages with new information."),
+                ),
+                cls=page_ctnt_cls,
+            ),
             fh.Div(
                 fh.P(
                     "2/4/25",
