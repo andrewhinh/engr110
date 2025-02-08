@@ -250,6 +250,16 @@ def get_app():  # noqa: C901
                 fh.P("This week, we:"),
                 fh.Ul(
                     fh.Li("Met with our community partner to discuss ranking of proposed solutions we will use."),
+                    fh.Ul(
+                        fh.Li(
+                            "We settled on fine-tuning Qwen2.5-VL on the point-prediction task using our proposed dataset.",
+                            cls="p-4 list-disc list-inside",
+                        ),
+                        fh.Li(
+                            "For the implementation, he'd like us to focus on finding good metrics for evaluation, minimizing latency and memory usage, and comparing the performance of different model sizes.",
+                            cls="p-4 list-disc list-inside",
+                        ),
+                    ),
                     fh.Li("Scheduled a meeting with our community partner to check in on our implementation progress."),
                     fh.Li("Updated our Gantt chart."),
                     fh.Li("Wrote the introduction for our project report."),
