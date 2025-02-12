@@ -16,9 +16,8 @@ def get_app():  # noqa: C901
     page_cls = (
         "flex flex-col justify-between min-h-screen w-full bg-zinc-900 text-slate-100 font-mono font-family:Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New'",
     )
-    main_ctnr_cls = "flex flex-col justify-center items-center grow gap-16 p-8"
-    page_ctnt_cls = "w-full md:w-2/3 flex flex-col justify-center items-center gap-8"
-    grid_cls = "grid grid-cols-2 md:flex md:flex-row items-center md:gap-8"
+    main_ctnr_cls = "flex flex-col justify-center items-center grow gap-10 p-8"
+    page_ctnt_cls = "w-full flex flex-col items-center gap-8"
     link_cls = "text-blue-300 hover:text-blue-100"
 
     def _not_found(req, exc):
@@ -140,11 +139,11 @@ def get_app():  # noqa: C901
                     cls="text-lg " + link_cls,
                 ),
                 fh.A(
-                    "andrew's blog",
+                    "blog",
                     href="/blog",
                     cls="text-lg " + link_cls,
                 ),
-                cls="text-right md:text-left gap-4 " + grid_cls,
+                cls="text-right md:text-left grid grid-cols-2 md:flex gap-4 md:gap-8",
             ),
             cls="flex justify-between p-4 relative",
         )
@@ -152,12 +151,13 @@ def get_app():  # noqa: C901
     def home_content():
         return fh.Main(
             fh.Div(
-                fh.P("Hi, we're Gigi Patmore, Andrew Hinh, Anastasiia Statcenko, and Pranav Chainani."),
                 fh.P(
-                    "This is our website for SCU's Community-Based Engineering (ENGR 110) class project.",
+                    "This website contains information for the SCU ENGR 110 Winter 2025 ",
+                    fh.B(fh.U("MHF Annotated Labeling Project")),
+                    ".",
                 ),
                 fh.P("Check out the links above in the navigation bar for more."),
-                cls=page_ctnt_cls,
+                cls="md:w-1/3 justify-center " + page_ctnt_cls,
             ),
             hx_indicator="#spinner",
             hx_trigger="load",
@@ -167,51 +167,68 @@ def get_app():  # noqa: C901
     def about_content():
         return fh.Main(
             fh.Div(
-                fh.P(
-                    "I'm Andrew Hinh, a 3rd year CSEN student at SCU focusing on ML/DL. In my free time, I enjoy cooking, gaming, and rock climbing.",
+                fh.Div(
+                    fh.P(
+                        "I'm ",
+                        fh.B(fh.U("Andrew Hinh")),
+                        ", a 3rd year CSEN student at SCU focusing on ML/DL. In my free time, I enjoy cooking, gaming, and rock climbing.",
+                    ),
+                    fh.Img(
+                        src="/assets/andrew.jpeg",
+                        alt="Andrew's Profile Picture",
+                        hx_indicator="#spinner",
+                        hx_trigger="load",
+                        cls="max-h-60 max-w-60 object-contain",
+                    ),
+                    cls="justify-between " + page_ctnt_cls,
                 ),
-                fh.Img(
-                    src="/assets/andrew.jpeg",
-                    alt="Andrew's Profile Picture",
-                    cls="max-h-60 max-w-60 object-contain",
+                fh.Div(
+                    fh.P(
+                        "Hi, my name is ",
+                        fh.B(fh.U("Pranav Chainani")),
+                        " and I am a third-year Electrical and Computer Engineering major at Santa Clara University. My interests include circuit design, and artificial intelligence in embedded systems. I have experience as a Product Manager as I am going to embark on my third internship at Microsoft as a Product Manager Intern. My hobbies include hiking, playing basketball, and watching crime thrillers.",
+                    ),
+                    fh.Img(
+                        src="/assets/pranav.jpeg",
+                        alt="Pranav's Profile Picture",
+                        hx_indicator="#spinner",
+                        hx_trigger="revealed",
+                        cls="max-h-60 max-w-60 object-contain",
+                    ),
+                    cls="justify-between " + page_ctnt_cls,
                 ),
-                cls=page_ctnt_cls,
+                fh.Div(
+                    fh.P(
+                        "Hi! My name is ",
+                        fh.B(fh.U("Gigi")),
+                        " and I am a Junior Electrical and Computer Engineering Major. I like to experiment with robotics and computer science, especially using Python and C. On campus, I am involved in the Society of Women Engineers (SWE), and in my free time, I like to travel, read, and spend time with friends.",
+                    ),
+                    fh.Img(
+                        src="/assets/gigi.jpeg",
+                        alt="Gigi's Profile Picture",
+                        hx_indicator="#spinner",
+                        hx_trigger="revealed",
+                        cls="max-h-60 max-w-60 object-contain",
+                    ),
+                    cls="justify-between " + page_ctnt_cls,
+                ),
+                fh.Div(
+                    fh.P(
+                        "Hello there! My name is ",
+                        fh.B(fh.U("Anastasiia Statcenko")),
+                        " and I am a junior studying Computer Science and Engineering at Santa Clara University. I enjoy working on projects that combine my passion for programming and hardware, such as building an Autonomous Whack-A-Mole Robot or SQL-like Parser Client in C++. On campus, I am involved in Acapella and Choir. Outside of academics, I love reading philosophy and writing music.",
+                    ),
+                    fh.Img(
+                        src="/assets/stasiia.jpeg",
+                        alt="Stasiia's Profile Picture",
+                        hx_indicator="#spinner",
+                        hx_trigger="revealed",
+                        cls="max-h-60 max-w-60 object-contain",
+                    ),
+                    cls="justify-between " + page_ctnt_cls,
+                ),
+                cls="md:w-2/3 flex flex-col md:grid md:grid-cols-2 gap-10",
             ),
-            fh.Div(
-                fh.P(
-                    "Hi, my name is Pranav Chainani and I am a third-year Electrical and Computer Engineering major at Santa Clara University. My interests include circuit design, and artificial intelligence in embedded systems. I have experience as a Product Manager as I am going to embark on my third internship at Microsoft as a Product Manager Intern. My hobbies include hiking, playing basketball, and watching crime thrillers.",
-                ),
-                fh.Img(
-                    src="/assets/pranav.jpeg",
-                    alt="Pranav's Profile Picture",
-                    cls="max-h-60 max-w-60 object-contain",
-                ),
-                cls=page_ctnt_cls,
-            ),
-            fh.Div(
-                fh.P(
-                    "Hi! My name is Gigi and I am a Junior Electrical and Computer Engineering Major. I like to experiment with robotics and computer science, especially using Python and C. On campus, I am involved in the Society of Women Engineers (SWE), and in my free time, I like to travel, read, and spend time with friends.",
-                ),
-                fh.Img(
-                    src="/assets/gigi.jpeg",
-                    alt="Gigi's Profile Picture",
-                    cls="max-h-60 max-w-60 object-contain",
-                ),
-                cls=page_ctnt_cls,
-            ),
-            fh.Div(
-                fh.P(
-                    "Hello there! My name is Anastasiia Statcenko, and I am a junior studying Computer Science and Engineering at Santa Clara University. I enjoy working on projects that combine my passion for programming and hardware, such as building an Autonomous Whack-A-Mole Robot or SQL-like Parser Client in C++. On campus, I am involved in Acapella and Choir. Outside of academics, I love reading philosophy and writing music.",
-                ),
-                fh.Img(
-                    src="/assets/stasiia.jpeg",
-                    alt="Stasiia's Profile Picture",
-                    cls="max-h-60 max-w-60 object-contain",
-                ),
-                cls=page_ctnt_cls,
-            ),
-            hx_indicator="#spinner",
-            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -232,9 +249,9 @@ def get_app():  # noqa: C901
                     " which both share similar goals of improving maternal health in sub-Saharan Africa. ",
                 ),
                 fh.Iframe(
-                    src="https://www.youtube.com/embed/FpMZB5JoQJc", title="Fistula: An MHF Film", cls="w-full h-svh"
+                    src="https://www.youtube.com/embed/FpMZB5JoQJc", title="Fistula: An MHF Film", cls="w-full h-96"
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-2/3 justify-start " + page_ctnt_cls,
             ),
             hx_indicator="#spinner",
             hx_trigger="load",
@@ -245,20 +262,46 @@ def get_app():  # noqa: C901
         return fh.Main(
             fh.Div(
                 fh.P(
-                    "2/11/25",
+                    fh.B(fh.U("2/18/25")),
                 ),
-                fh.P("This week, we:"),
+                fh.Ul(
+                    fh.Li("Emailed our community partner about the metric we've chosen to use for evaluation."),
+                    fh.Li("Completed eFolio peer reviews."),
+                    fh.Li("Updated our Gantt chart."),
+                    fh.Li("Presented on our project status to the class and our community partner."),
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/presentation/d/1_ob0-vyQvwqZDx8aDCFRiMYe7fL2NOY54j6C7P7f68k/edit?usp=sharing?embedded=true",
+                    title="Week 6 Status Update Presentation",
+                    cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/1a7lgvn6qnTkRB2bDayvsGMw8nEvdTFKilLsLrnjH5q4/edit?usp=sharing?embedded=true",
+                    title="Week 6 Metrics",
+                    cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
+                ),
+                cls="md:w-2/3 " + page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
+                    fh.B(fh.U("2/11/25")),
+                ),
                 fh.Ul(
                     fh.Li("Met with our community partner to discuss ranking of proposed solutions we will use."),
                     fh.Ul(
                         fh.Li(
                             "We settled on fine-tuning Qwen2.5-VL on the point-prediction task using our proposed dataset.",
-                            cls="p-4 list-disc list-inside",
+                            cls="list-disc list-inside",
                         ),
                         fh.Li(
                             "For the implementation, he'd like us to focus on finding good metrics for evaluation, minimizing latency and memory usage, and comparing the performance of different model sizes.",
-                            cls="p-4 list-disc list-inside",
+                            cls="list-disc list-inside",
                         ),
+                        cls="flex flex-col gap-1 p-2",
                     ),
                     fh.Li("Scheduled a meeting with our community partner to check in on our implementation progress."),
                     fh.Li("Updated our Gantt chart."),
@@ -268,22 +311,24 @@ def get_app():  # noqa: C901
                     src="https://docs.google.com/document/d/1099_lKw-ioY0NKNFFzv7Kf-yvIcjKzkDrbEGmVqU6fA/edit?usp=sharing?embedded=true",
                     title="Week 5 Project Report Introduction",
                     cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
                 fh.P(
-                    "2/4/25",
+                    fh.B(fh.U("2/4/25")),
                 ),
-                fh.P("This week, we:"),
                 fh.Ul(
                     fh.Li(
                         "Met with our community partner to discuss ranking of proposed datasets we will use. Below is the summary:",
                         fh.Ul(
                             fh.Li(
                                 "Mahni agreed with our ranking, and proposed his own dataset which we initially rejected due to the lack of segmentation labels. However, he now says these labels are not necessarily required.",
-                                cls="p-4 list-disc list-inside",
+                                cls="list-disc list-inside",
                             ),
+                            cls="flex flex-col gap-1 p-2",
                         ),
                     ),
                     fh.Li(
@@ -297,27 +342,31 @@ def get_app():  # noqa: C901
                     src="https://docs.google.com/document/d/1QKPghn7ofOXiDgwf9LgjZudIWcZalDaYbgZFZymEgaU/edit?usp=sharing?embedded=true",
                     title="Week 4 Solution Proposal",
                     cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/document/d/1mfdwgn7euTwjL1cV9o15PlTjvGGw1HAhCUs9rCUpKAk/edit?usp=sharing?embedded=true",
                     title="Week 4 Design Review",
                     cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
                 fh.P(
-                    "1/28/25",
+                    fh.B(fh.U("1/28/25")),
                 ),
-                fh.P("This week, we:"),
                 fh.Ul(
                     fh.Li(
                         "Came up with the following problem statement:",
                         fh.Ul(
                             fh.Li(
-                                "MHO’s Chief AI Officer needs a potential automated solution to suggest labels for ultrasound images because of the time and monetary cost of manual labor.",
-                                cls="p-4 list-disc list-inside",
+                                "MHF’s Chief AI Officer needs a potential automated solution to suggest labels for ultrasound images because of the time and monetary cost of manual labor.",
+                                cls="list-disc list-inside",
                             ),
+                            cls="flex flex-col gap-1 p-2",
                         ),
                     ),
                     fh.Li(
@@ -331,8 +380,9 @@ def get_app():  # noqa: C901
                         fh.Ul(
                             fh.Li(
                                 "Before team meeting sunday, look over your and others' datasets and rank which ones you think we should use. We’ll discuss it sunday and move forward with the top dataset to create a proposal for him for our meeting next week.",
-                                cls="p-4 list-disc list-inside",
+                                cls="list-disc list-inside",
                             ),
+                            cls="flex flex-col gap-1 p-2",
                         ),
                     ),
                     fh.Li(
@@ -343,24 +393,29 @@ def get_app():  # noqa: C901
                     src="https://docs.google.com/document/d/1wMQcTuM_cb2Ur1VsG8rVsLqLigFYQLwoaBg-8dgU9Nk/edit?usp=drive_link?embedded=true",
                     title="Week 3 Dataset Proposal",
                     cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/spreadsheets/d/1xF2eMSg26GFkbdGwVVUvcIv7fqNWWWDsGyeHeZoppdU/edit?usp=drive_link?embedded=true",
                     title="Week 3 Gantt Chart",
                     cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/document/d/1KObr86ITkrr6Qc9P0LxuaFamLGa7eYNdOq9UDD2aIAI/edit?usp=drive_link?embedded=true",
                     title="Week 3 Team Contract",
                     cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
                 fh.P(
-                    "1/21/25",
+                    fh.B(fh.U("1/21/25")),
                 ),
-                fh.P("This week, we:"),
                 fh.Ul(
                     fh.Li(
                         "Scheduled a meeting with our community partner, and drafted questions and curated datasets in preparation."
@@ -376,25 +431,27 @@ def get_app():  # noqa: C901
                     src="https://docs.google.com/document/d/1UrzQ3rnxGRUNtGPX4nH8FHaKZ-VpXASbr3uJJ8OQVZw/edit?usp=drive_link?embedded=true",
                     title="Week 2 Team Activities and Documentation",
                     cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
                 fh.P(
-                    "1/14/25",
+                    fh.B(fh.U("1/14/25")),
                 ),
                 fh.P(
-                    "(Andrew Hinh) This is my first choice partner because I really enjoy working on AI, especially when applied to healthcare.",
+                    "This is my first choice partner because I really enjoy working on AI, especially when applied to healthcare.",
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/document/d/14YZgGb4Hw2yzWcnKXt-fEAJYrAUGvkSgd10AhLYwkW4/edit?usp=drive_link?embedded=true",
                     title="Andrew's CP Research",
-                    cls="w-full h-svh",
+                    cls="max-w-60 max-h-60 object-contain",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-2/3 " + page_ctnt_cls,
             ),
-            hx_indicator="#spinner",
-            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -402,7 +459,25 @@ def get_app():  # noqa: C901
         return fh.Main(
             fh.Div(
                 fh.P(
-                    "2/11/25",
+                    fh.B(fh.U("2/18/25")),
+                ),
+                fh.Ul(
+                    fh.Li(
+                        "Completed EDA and baseline evaluation of model.",
+                    ),
+                    fh.Li(
+                        "Emailed the metric we decided to use for evaluating the model to our community partner.",
+                    ),
+                    fh.Li(
+                        "Updated the dataset, EDA, and model evaluation slides for the project status update presentation.",
+                    ),
+                    fh.Li("Updated the eFolio's project and blog pages with new information."),
+                ),
+                cls="md:w-1/3 " + page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
+                    fh.B(fh.U("2/11/25")),
                 ),
                 fh.Ul(
                     fh.Li(
@@ -411,11 +486,11 @@ def get_app():  # noqa: C901
                     fh.Li("Wrote the roadmap for the project report introduction."),
                     fh.Li("Updated the eFolio's project and blog pages with new information."),
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-1/3 " + page_ctnt_cls,
             ),
             fh.Div(
                 fh.P(
-                    "2/4/25",
+                    fh.B(fh.U("2/4/25")),
                 ),
                 fh.Ul(
                     fh.Li(
@@ -425,11 +500,11 @@ def get_app():  # noqa: C901
                     fh.Li("Revised and added thoughts to team reflection."),
                     fh.Li("Updated the eFolio's project and blog pages with new information."),
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-1/3 " + page_ctnt_cls,
             ),
             fh.Div(
                 fh.P(
-                    "1/28/25",
+                    fh.B(fh.U("1/28/25")),
                 ),
                 fh.Ul(
                     fh.Li(
@@ -439,11 +514,11 @@ def get_app():  # noqa: C901
                     ),
                     fh.Li("Updated the eFolio's project and blog pages with new information."),
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-1/3 " + page_ctnt_cls,
             ),
             fh.Div(
                 fh.P(
-                    "1/21/25",
+                    fh.B(fh.U("1/21/25")),
                 ),
                 fh.Ul(
                     fh.Li("Researched a few datasets before the meeting with our community partner."),
@@ -453,7 +528,7 @@ def get_app():  # noqa: C901
                     fh.Li("Created a new GH repo for all of our work we will share with our community partner."),
                     fh.Li("Gave initial draft for distributing phases amongst team members."),
                 ),
-                cls=page_ctnt_cls,
+                cls="md:w-1/3 " + page_ctnt_cls,
             ),
             hx_indicator="#spinner",
             hx_trigger="load",
@@ -558,7 +633,7 @@ def get_app():  # noqa: C901
         session,
     ):
         return (
-            fh.Title(NAME + " | " + "andrew's blog"),
+            fh.Title(NAME + " | " + "blog"),
             fh.Div(
                 nav(),
                 blog_content(),
