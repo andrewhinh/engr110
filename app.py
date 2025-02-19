@@ -14,7 +14,7 @@ PARENT_PATH = Path(__file__).parent
 def get_app():  # noqa: C901
     # setup
     page_cls = (
-        "flex flex-col justify-between min-h-screen w-full bg-zinc-900 text-slate-100 font-mono font-family:Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New'",
+        "flex flex-col justify-between min-h-screen w-full bg-zinc-900 text-slate-50 font-mono font-family:Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New'",
     )
     main_ctnr_cls = "flex flex-col justify-center items-center grow gap-10 p-8"
     page_ctnt_cls = "w-full flex flex-col items-center gap-8"
@@ -138,11 +138,6 @@ def get_app():  # noqa: C901
                     href="/project",
                     cls="text-lg " + link_cls,
                 ),
-                fh.A(
-                    "blog",
-                    href="/blog",
-                    cls="text-lg " + link_cls,
-                ),
                 cls="text-right md:text-left grid grid-cols-2 md:flex gap-4 md:gap-8",
             ),
             cls="flex justify-between p-4 relative",
@@ -151,10 +146,21 @@ def get_app():  # noqa: C901
     def home_content():
         return fh.Main(
             fh.Div(
+                fh.P("MHF Annotated Labeling Project", cls="text-4xl text-center"),
+                cls="md:w-2/3 justify-center " + page_ctnt_cls,
+            ),
+            fh.Div(
                 fh.P(
                     "This website contains information for the SCU ENGR 110 Winter 2025 ",
                     fh.B(fh.U("MHF Annotated Labeling Project")),
                     ".",
+                ),
+                fh.Img(
+                    src="/assets/example.png",
+                    alt="Example ultrasound",
+                    hx_indicator="#spinner",
+                    hx_trigger="load",
+                    cls="w-full object-contain",
                 ),
                 fh.P("Check out the links above in the navigation bar for more."),
                 cls="md:w-1/3 justify-center " + page_ctnt_cls,
@@ -261,6 +267,34 @@ def get_app():  # noqa: C901
     def project_content():
         return fh.Main(
             fh.Div(
+                fh.P("Weekly Reports", cls="text-4xl text-center"),
+                cls="md:w-2/3 justify-center " + page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
+                    fh.B(fh.U("2/25/25")),
+                ),
+                fh.Ul(
+                    fh.Li("Reflected on our team's progress and our project's impact."),
+                    fh.Li("Completed initial model fine-tune and draft API + website."),
+                    fh.Li("Updated our Gantt chart."),
+                ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li("Completed initial model fine-tune and ran evaluation."),
+                    fh.Li("Emailed partner about updated evaluation metrics."),
+                    fh.Li("Updated the eFolio's project page with new information."),
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/1x5yxfhsUCS8gRAXRlKIHsDldSjluekfPUSum8A4VoRA/edit?usp=sharing?embedded=true",
+                    title="Week 7 Reflection",
+                    cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
+                ),
+                cls="md:w-2/3 " + page_ctnt_cls,
+            ),
+            fh.Div(
                 fh.P(
                     fh.B(fh.U("2/18/25")),
                 ),
@@ -268,7 +302,21 @@ def get_app():  # noqa: C901
                     fh.Li("Emailed our community partner about the metric we've chosen to use for evaluation."),
                     fh.Li("Completed eFolio peer reviews."),
                     fh.Li("Updated our Gantt chart."),
+                    fh.Li("Completed EDA and baseline evaluation."),
                     fh.Li("Presented on our project status to the class and our community partner."),
+                ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li(
+                        "Completed EDA and baseline evaluation of model.",
+                    ),
+                    fh.Li(
+                        "Emailed the metric we decided to use for evaluating the model to our community partner.",
+                    ),
+                    fh.Li(
+                        "Updated the dataset, EDA, and model evaluation slides for the project status update presentation.",
+                    ),
+                    fh.Li("Updated the eFolio's project page with new information."),
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/presentation/d/1_ob0-vyQvwqZDx8aDCFRiMYe7fL2NOY54j6C7P7f68k/edit?usp=sharing?embedded=true",
@@ -289,6 +337,14 @@ def get_app():  # noqa: C901
             fh.Div(
                 fh.P(
                     fh.B(fh.U("2/11/25")),
+                ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li(
+                        "Started work on implementation of accepted solution.",
+                    ),
+                    fh.Li("Wrote the roadmap for the project report introduction."),
+                    fh.Li("Updated the eFolio's project page with new information."),
                 ),
                 fh.Ul(
                     fh.Li("Met with our community partner to discuss ranking of proposed solutions we will use."),
@@ -319,6 +375,15 @@ def get_app():  # noqa: C901
             fh.Div(
                 fh.P(
                     fh.B(fh.U("2/4/25")),
+                ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li(
+                        "Researched majority of solutions to propose to our community partner.",
+                    ),
+                    fh.Li("Revised team contract."),
+                    fh.Li("Revised and added thoughts to team reflection."),
+                    fh.Li("Updated the eFolio's project page with new information."),
                 ),
                 fh.Ul(
                     fh.Li(
@@ -357,6 +422,15 @@ def get_app():  # noqa: C901
             fh.Div(
                 fh.P(
                     fh.B(fh.U("1/28/25")),
+                ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li(
+                        "Researched datasets to propose to our community partner, including ",
+                        fh.A("this dataset", href="https://www.nature.com/articles/s41597-024-03774-3", cls=link_cls),
+                        " which we will proceed with for the project.",
+                    ),
+                    fh.Li("Updated the eFolio's project page with new information."),
                 ),
                 fh.Ul(
                     fh.Li(
@@ -416,6 +490,15 @@ def get_app():  # noqa: C901
                 fh.P(
                     fh.B(fh.U("1/21/25")),
                 ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li("Researched a few datasets before the meeting with our community partner."),
+                    fh.Li(
+                        "Updated the eFolio to add the partner page, and updated the About us and project pages with new information."
+                    ),
+                    fh.Li("Created a new GH repo for all of our work we will share with our community partner."),
+                    fh.Li("Gave initial draft for distributing phases amongst team members."),
+                ),
                 fh.Ul(
                     fh.Li(
                         "Scheduled a meeting with our community partner, and drafted questions and curated datasets in preparation."
@@ -452,86 +535,6 @@ def get_app():  # noqa: C901
                 ),
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
-            cls=main_ctnr_cls,
-        )
-
-    def blog_content():
-        return fh.Main(
-            fh.Div(
-                fh.P(
-                    fh.B(fh.U("2/18/25")),
-                ),
-                fh.Ul(
-                    fh.Li(
-                        "Completed EDA and baseline evaluation of model.",
-                    ),
-                    fh.Li(
-                        "Emailed the metric we decided to use for evaluating the model to our community partner.",
-                    ),
-                    fh.Li(
-                        "Updated the dataset, EDA, and model evaluation slides for the project status update presentation.",
-                    ),
-                    fh.Li("Updated the eFolio's project and blog pages with new information."),
-                ),
-                cls="md:w-1/3 " + page_ctnt_cls,
-            ),
-            fh.Div(
-                fh.P(
-                    fh.B(fh.U("2/11/25")),
-                ),
-                fh.Ul(
-                    fh.Li(
-                        "Started work on implementation of accepted solution.",
-                    ),
-                    fh.Li("Wrote the roadmap for the project report introduction."),
-                    fh.Li("Updated the eFolio's project and blog pages with new information."),
-                ),
-                cls="md:w-1/3 " + page_ctnt_cls,
-            ),
-            fh.Div(
-                fh.P(
-                    fh.B(fh.U("2/4/25")),
-                ),
-                fh.Ul(
-                    fh.Li(
-                        "Researched majority of solutions to propose to our community partner.",
-                    ),
-                    fh.Li("Revised team contract."),
-                    fh.Li("Revised and added thoughts to team reflection."),
-                    fh.Li("Updated the eFolio's project and blog pages with new information."),
-                ),
-                cls="md:w-1/3 " + page_ctnt_cls,
-            ),
-            fh.Div(
-                fh.P(
-                    fh.B(fh.U("1/28/25")),
-                ),
-                fh.Ul(
-                    fh.Li(
-                        "Researched datasets to propose to our community partner, including ",
-                        fh.A("this dataset", href="https://www.nature.com/articles/s41597-024-03774-3", cls=link_cls),
-                        " which we will proceed with for the project.",
-                    ),
-                    fh.Li("Updated the eFolio's project and blog pages with new information."),
-                ),
-                cls="md:w-1/3 " + page_ctnt_cls,
-            ),
-            fh.Div(
-                fh.P(
-                    fh.B(fh.U("1/21/25")),
-                ),
-                fh.Ul(
-                    fh.Li("Researched a few datasets before the meeting with our community partner."),
-                    fh.Li(
-                        "Updated the eFolio to add the partner and blog pages, and updated the About us and project pages with new information."
-                    ),
-                    fh.Li("Created a new GH repo for all of our work we will share with our community partner."),
-                    fh.Li("Gave initial draft for distributing phases amongst team members."),
-                ),
-                cls="md:w-1/3 " + page_ctnt_cls,
-            ),
-            hx_indicator="#spinner",
-            hx_trigger="load",
             cls=main_ctnr_cls,
         )
 
@@ -622,21 +625,6 @@ def get_app():  # noqa: C901
             fh.Div(
                 nav(),
                 project_content(),
-                toast_container(),
-                footer(),
-                cls=page_cls,
-            ),
-        )
-
-    @f_app.get("/blog")
-    def blog(
-        session,
-    ):
-        return (
-            fh.Title(NAME + " | " + "blog"),
-            fh.Div(
-                nav(),
-                blog_content(),
                 toast_container(),
                 footer(),
                 cls=page_cls,
