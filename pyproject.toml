@@ -7,6 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "modal>=0.71.7",
     "python-fasthtml>=0.12.0",
+    "simpleicons>=7.21.0",
     "sqlite-minutils>=4.0.3",
 ]
 

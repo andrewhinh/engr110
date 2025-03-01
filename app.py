@@ -3,6 +3,7 @@ from pathlib import Path
 
 import modal
 from fasthtml import common as fh
+from simpleicons.icons import si_github
 from starlette.middleware.cors import CORSMiddleware
 
 # -----------------------------------------------------------------------------
@@ -120,7 +121,7 @@ def get_app():  # noqa: C901
                 """
                 ),
                 id="spinner",
-                cls="htmx-indicator w-8 h-8 absolute top-32 md:top-6 left-1/2 transform -translate-x-1/2 fill-blue-300",
+                cls="htmx-indicator w-8 h-8 absolute top-16 md:top-6 left-1/2 transform -translate-x-1/2 fill-blue-300",
             ),
             fh.Div(
                 fh.A(
@@ -134,11 +135,12 @@ def get_app():  # noqa: C901
                     cls="text-lg " + link_cls,
                 ),
                 fh.A(
-                    "project",
-                    href="/project",
+                    "blog",
+                    href="/blog",
                     cls="text-lg " + link_cls,
                 ),
-                cls="text-right md:text-left grid grid-cols-2 md:flex gap-4 md:gap-8",
+                cls="text-right md:text-left grid grid-cols-2 justify-items-end md:flex gap-4 md:gap-8",
+                style="direction: rtl;",
             ),
             cls="flex justify-between p-4 relative",
         )
@@ -264,11 +266,35 @@ def get_app():  # noqa: C901
             cls=main_ctnr_cls,
         )
 
-    def project_content():
+    def blog_content():
         return fh.Main(
             fh.Div(
                 fh.P("Weekly Reports", cls="text-4xl text-center"),
                 cls="md:w-2/3 justify-center " + page_ctnt_cls,
+            ),
+            fh.Div(
+                fh.P(
+                    fh.B(fh.U("3/4/25")),
+                ),
+                fh.Ul(
+                    fh.Li("Updated progress for draft of final report."),
+                    fh.Li("Completed model fine-tune and API + website."),
+                    fh.Li("Updated our Gantt chart."),
+                ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li("Completed model fine-tune and API + website."),
+                    fh.Li("Emailed partner about model training progress."),
+                    fh.Li("Updated the eFolio's blog page with new information."),
+                ),
+                fh.Iframe(
+                    src="https://docs.google.com/document/d/1JlFB8ReklXnuTDAgMZ1R-huJg36f4kV9Y9CpOZrKLmI/edit?usp=sharing?embedded=true",
+                    title="Week 8 Draft Report",
+                    cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
+                ),
+                cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
                 fh.P(
@@ -283,7 +309,7 @@ def get_app():  # noqa: C901
                 fh.Ul(
                     fh.Li("Completed initial model fine-tune and ran evaluation."),
                     fh.Li("Emailed partner about updated evaluation metrics."),
-                    fh.Li("Updated the eFolio's project page with new information."),
+                    fh.Li("Updated the eFolio's blog page with new information."),
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/document/d/1x5yxfhsUCS8gRAXRlKIHsDldSjluekfPUSum8A4VoRA/edit?usp=sharing?embedded=true",
@@ -316,7 +342,7 @@ def get_app():  # noqa: C901
                     fh.Li(
                         "Updated the dataset, EDA, and model evaluation slides for the project status update presentation.",
                     ),
-                    fh.Li("Updated the eFolio's project page with new information."),
+                    fh.Li("Updated the eFolio's blog page with new information."),
                 ),
                 fh.Iframe(
                     src="https://docs.google.com/presentation/d/1_ob0-vyQvwqZDx8aDCFRiMYe7fL2NOY54j6C7P7f68k/edit?usp=sharing?embedded=true",
@@ -344,7 +370,7 @@ def get_app():  # noqa: C901
                         "Started work on implementation of accepted solution.",
                     ),
                     fh.Li("Wrote the roadmap for the project report introduction."),
-                    fh.Li("Updated the eFolio's project page with new information."),
+                    fh.Li("Updated the eFolio's blog page with new information."),
                 ),
                 fh.Ul(
                     fh.Li("Met with our community partner to discuss ranking of proposed solutions we will use."),
@@ -383,7 +409,7 @@ def get_app():  # noqa: C901
                     ),
                     fh.Li("Revised team contract."),
                     fh.Li("Revised and added thoughts to team reflection."),
-                    fh.Li("Updated the eFolio's project page with new information."),
+                    fh.Li("Updated the eFolio's blog page with new information."),
                 ),
                 fh.Ul(
                     fh.Li(
@@ -430,7 +456,7 @@ def get_app():  # noqa: C901
                         fh.A("this dataset", href="https://www.nature.com/articles/s41597-024-03774-3", cls=link_cls),
                         " which we will proceed with for the project.",
                     ),
-                    fh.Li("Updated the eFolio's project page with new information."),
+                    fh.Li("Updated the eFolio's blog page with new information."),
                 ),
                 fh.Ul(
                     fh.Li(
@@ -543,6 +569,16 @@ def get_app():  # noqa: C901
 
     def footer():
         return fh.Footer(
+            fh.A(
+                fh.Svg(
+                    fh.NotStr(
+                        si_github.svg,
+                    ),
+                    cls="w-8 h-8 text-blue-300 hover:text-blue-100 cursor-pointer",
+                ),
+                href="https://github.com/andrewhinh/mhf",
+                target="_blank",
+            ),
             fh.Div(
                 fh.P("Made by"),
                 fh.A(
@@ -552,7 +588,7 @@ def get_app():  # noqa: C901
                 ),
                 cls="flex flex-col text-right gap-0.5",
             ),
-            cls="flex justify-end items-center p-4 text-lg",
+            cls="flex justify-between items-center p-4 text-lg",
         )
 
     # routes
@@ -616,15 +652,15 @@ def get_app():  # noqa: C901
             ),
         )
 
-    @f_app.get("/project")
-    def project(
+    @f_app.get("/blog")
+    def blog(
         session,
     ):
         return (
-            fh.Title(NAME + " | " + "project"),
+            fh.Title(NAME + " | " + "blog"),
             fh.Div(
                 nav(),
-                project_content(),
+                blog_content(),
                 toast_container(),
                 footer(),
                 cls=page_cls,
@@ -643,8 +679,9 @@ PYTHON_VERSION = "3.12"
 IMAGE = (
     modal.Image.debian_slim(python_version=PYTHON_VERSION)
     .pip_install(  # add Python dependencies
-        "python-fasthtml==0.6.10",
-        "sqlite-minutils==4.0.3",  # needed for fasthtml
+        "python-fasthtml>=0.12.0",
+        "simpleicons>=7.21.0",
+        "sqlite-minutils>=4.0.3",
     )
     .add_local_dir(PARENT_PATH / "assets", "/root/assets", copy=True)
 )
