@@ -1,3 +1,3 @@
 # engr110
 
-[ENGR 110 eFolio](https://andrewhinh--engr110-frontend-modal-get.modal.run)
+[ENGR 110 eFolio](https://bit.ly/engr110-ajhinh)

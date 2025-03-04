@@ -155,7 +155,19 @@ def get_app():  # noqa: C901
                 fh.P(
                     "This website contains information for the SCU ENGR 110 Winter 2025 ",
                     fh.B(fh.U("MHF Annotated Labeling Project")),
-                    ".",
+                    ", an automated ultrasound substructure localization system utilizing a fine-tuned Qwen2.5-VL-3B-Instruct that reduces Hausdorff distance by 57.65% and Euclidean distance by 31.72% compared to the base model.",
+                ),
+                fh.P(
+                    "Visit the ",
+                    fh.A(
+                        "website",
+                        href="https://bit.ly/mhf-winter-2025",
+                        cls=link_cls,
+                    ),
+                    " to test the model on sample ultrasounds.",
+                ),
+                fh.P(
+                    "ETL, evaluation, and model quantization/training alongside an API and website were completed and served for under $2.",
                 ),
                 fh.Img(
                     src="/assets/example.png",
@@ -164,7 +176,7 @@ def get_app():  # noqa: C901
                     hx_trigger="load",
                     cls="w-full object-contain",
                 ),
-                fh.P("Check out the links above in the navigation bar for more."),
+                fh.P("Check out the links above in the navigation bar for more information."),
                 cls="md:w-1/3 justify-center " + page_ctnt_cls,
             ),
             hx_indicator="#spinner",
@@ -257,7 +269,10 @@ def get_app():  # noqa: C901
                     " which both share similar goals of improving maternal health in sub-Saharan Africa. ",
                 ),
                 fh.Iframe(
-                    src="https://www.youtube.com/embed/FpMZB5JoQJc", title="Fistula: An MHF Film", cls="w-full h-96"
+                    src="https://www.youtube.com/embed/FpMZB5JoQJc",
+                    title="Fistula: An MHF Film",
+                    loading="lazy",
+                    cls="w-full h-96",
                 ),
                 cls="md:w-2/3 justify-start " + page_ctnt_cls,
             ),
@@ -273,23 +288,32 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 justify-center " + page_ctnt_cls,
             ),
             fh.Div(
-                fh.P(
-                    fh.B(fh.U("3/4/25")),
-                ),
+                fh.P(fh.B(fh.U("3/11/25"))),
                 fh.Ul(
-                    fh.Li("Updated progress for draft of final report."),
-                    fh.Li("Completed model fine-tune and API + website."),
+                    fh.Li("Completed final report and presentation."),
                     fh.Li("Updated our Gantt chart."),
                 ),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
-                    fh.Li("Completed model fine-tune and API + website."),
-                    fh.Li("Emailed partner about model training progress."),
-                    fh.Li("Updated the eFolio's blog page with new information."),
+                    fh.Li("Completed results and appendix sections of final report."),
+                    fh.Li("Updated the eFolio's home and blog page with new information."),
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1JlFB8ReklXnuTDAgMZ1R-huJg36f4kV9Y9CpOZrKLmI/edit?usp=sharing?embedded=true",
-                    title="Week 8 Draft Report",
+                    **{
+                        "data-src": "https://docs.google.com/presentation/d/1tbuMEgGKxdQRsnHvGZwfdjJNx-PwyOAQwCH-3cffeWo/edit?usp=sharing?embedded=true"
+                    },
+                    title="Week 9 Final Presenation",
+                    loading="lazy",
+                    cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
+                ),
+                fh.Iframe(
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1JlFB8ReklXnuTDAgMZ1R-huJg36f4kV9Y9CpOZrKLmI/edit?usp=sharing?embedded=true"
+                    },
+                    title="Week 9 Final Report",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
@@ -297,9 +321,24 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
-                fh.P(
-                    fh.B(fh.U("2/25/25")),
+                fh.P(fh.B(fh.U("3/4/25"))),
+                fh.Ul(
+                    fh.Li("Updated progress for draft of final report."),
+                    fh.Li("Completed model fine-tune and API + website."),
+                    fh.Li("Exchanged multiple emails with our community partner."),
+                    fh.Li("Met with our community partner to discuss progress."),
+                    fh.Li("Updated our Gantt chart."),
                 ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li("Completed model fine-tune and API + website."),
+                    fh.Li("Emailed partner about model training progress."),
+                    fh.Li("Led meeting with partner via code walkthrough."),
+                    fh.Li("Updated the eFolio's blog page with new information."),
+                ),
+            ),
+            fh.Div(
+                fh.P(fh.B(fh.U("2/25/25"))),
                 fh.Ul(
                     fh.Li("Reflected on our team's progress and our project's impact."),
                     fh.Li("Completed initial model fine-tune and draft API + website."),
@@ -312,8 +351,11 @@ def get_app():  # noqa: C901
                     fh.Li("Updated the eFolio's blog page with new information."),
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1x5yxfhsUCS8gRAXRlKIHsDldSjluekfPUSum8A4VoRA/edit?usp=sharing?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1x5yxfhsUCS8gRAXRlKIHsDldSjluekfPUSum8A4VoRA/edit?usp=sharing?embedded=true"
+                    },
                     title="Week 7 Reflection",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
@@ -321,9 +363,7 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
-                fh.P(
-                    fh.B(fh.U("2/18/25")),
-                ),
+                fh.P(fh.B(fh.U("2/18/25"))),
                 fh.Ul(
                     fh.Li("Emailed our community partner about the metric we've chosen to use for evaluation."),
                     fh.Li("Completed eFolio peer reviews."),
@@ -333,27 +373,29 @@ def get_app():  # noqa: C901
                 ),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
+                    fh.Li("Completed EDA and baseline evaluation of model."),
+                    fh.Li("Emailed the metric we decided to use for evaluating the model to our community partner."),
                     fh.Li(
-                        "Completed EDA and baseline evaluation of model.",
-                    ),
-                    fh.Li(
-                        "Emailed the metric we decided to use for evaluating the model to our community partner.",
-                    ),
-                    fh.Li(
-                        "Updated the dataset, EDA, and model evaluation slides for the project status update presentation.",
+                        "Updated the dataset, EDA, and model evaluation slides for the project status update presentation."
                     ),
                     fh.Li("Updated the eFolio's blog page with new information."),
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/presentation/d/1_ob0-vyQvwqZDx8aDCFRiMYe7fL2NOY54j6C7P7f68k/edit?usp=sharing?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/presentation/d/1_ob0-vyQvwqZDx8aDCFRiMYe7fL2NOY54j6C7P7f68k/edit?usp=sharing?embedded=true"
+                    },
                     title="Week 6 Status Update Presentation",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1a7lgvn6qnTkRB2bDayvsGMw8nEvdTFKilLsLrnjH5q4/edit?usp=sharing?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1a7lgvn6qnTkRB2bDayvsGMw8nEvdTFKilLsLrnjH5q4/edit?usp=sharing?embedded=true"
+                    },
                     title="Week 6 Metrics",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
@@ -361,14 +403,10 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
-                fh.P(
-                    fh.B(fh.U("2/11/25")),
-                ),
+                fh.P(fh.B(fh.U("2/11/25"))),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
-                    fh.Li(
-                        "Started work on implementation of accepted solution.",
-                    ),
+                    fh.Li("Started work on implementation of accepted solution."),
                     fh.Li("Wrote the roadmap for the project report introduction."),
                     fh.Li("Updated the eFolio's blog page with new information."),
                 ),
@@ -390,8 +428,11 @@ def get_app():  # noqa: C901
                     fh.Li("Wrote the introduction for our project report."),
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1099_lKw-ioY0NKNFFzv7Kf-yvIcjKzkDrbEGmVqU6fA/edit?usp=sharing?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1099_lKw-ioY0NKNFFzv7Kf-yvIcjKzkDrbEGmVqU6fA/edit?usp=sharing?embedded=true"
+                    },
                     title="Week 5 Project Report Introduction",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
@@ -399,14 +440,10 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
-                fh.P(
-                    fh.B(fh.U("2/4/25")),
-                ),
+                fh.P(fh.B(fh.U("2/4/25"))),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
-                    fh.Li(
-                        "Researched majority of solutions to propose to our community partner.",
-                    ),
+                    fh.Li("Researched majority of solutions to propose to our community partner."),
                     fh.Li("Revised team contract."),
                     fh.Li("Revised and added thoughts to team reflection."),
                     fh.Li("Updated the eFolio's blog page with new information."),
@@ -430,15 +467,21 @@ def get_app():  # noqa: C901
                     fh.Li("Reflected on our team's progress and our project's impact."),
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1QKPghn7ofOXiDgwf9LgjZudIWcZalDaYbgZFZymEgaU/edit?usp=sharing?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1QKPghn7ofOXiDgwf9LgjZudIWcZalDaYbgZFZymEgaU/edit?usp=sharing?embedded=true"
+                    },
                     title="Week 4 Solution Proposal",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1mfdwgn7euTwjL1cV9o15PlTjvGGw1HAhCUs9rCUpKAk/edit?usp=sharing?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1mfdwgn7euTwjL1cV9o15PlTjvGGw1HAhCUs9rCUpKAk/edit?usp=sharing?embedded=true"
+                    },
                     title="Week 4 Design Review",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
@@ -446,9 +489,7 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
-                fh.P(
-                    fh.B(fh.U("1/28/25")),
-                ),
+                fh.P(fh.B(fh.U("1/28/25"))),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
                     fh.Li(
@@ -470,7 +511,7 @@ def get_app():  # noqa: C901
                         ),
                     ),
                     fh.Li(
-                        "Scheduled a meeting with our community partner to discuss proposed datasets we will use. Below is the summary:",
+                        "Scheduled a meeting with our community partner to discuss proposed datasets we will use. Below is the summary:"
                     ),
                     fh.Li("Researched datasets to propose to our community partner."),
                     fh.Li("Revised our Gantt chart to include more details."),
@@ -490,22 +531,31 @@ def get_app():  # noqa: C901
                     ),
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1wMQcTuM_cb2Ur1VsG8rVsLqLigFYQLwoaBg-8dgU9Nk/edit?usp=drive_link?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1wMQcTuM_cb2Ur1VsG8rVsLqLigFYQLwoaBg-8dgU9Nk/edit?usp=drive_link?embedded=true"
+                    },
                     title="Week 3 Dataset Proposal",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/spreadsheets/d/1xF2eMSg26GFkbdGwVVUvcIv7fqNWWWDsGyeHeZoppdU/edit?usp=drive_link?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/spreadsheets/d/1xF2eMSg26GFkbdGwVVUvcIv7fqNWWWDsGyeHeZoppdU/edit?usp=drive_link?embedded=true"
+                    },
                     title="Week 3 Gantt Chart",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1KObr86ITkrr6Qc9P0LxuaFamLGa7eYNdOq9UDD2aIAI/edit?usp=drive_link?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1KObr86ITkrr6Qc9P0LxuaFamLGa7eYNdOq9UDD2aIAI/edit?usp=drive_link?embedded=true"
+                    },
                     title="Week 3 Team Contract",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
@@ -513,9 +563,7 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
-                fh.P(
-                    fh.B(fh.U("1/21/25")),
-                ),
+                fh.P(fh.B(fh.U("1/21/25"))),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
                     fh.Li("Researched a few datasets before the meeting with our community partner."),
@@ -537,8 +585,11 @@ def get_app():  # noqa: C901
                     ),
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/1UrzQ3rnxGRUNtGPX4nH8FHaKZ-VpXASbr3uJJ8OQVZw/edit?usp=drive_link?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1UrzQ3rnxGRUNtGPX4nH8FHaKZ-VpXASbr3uJJ8OQVZw/edit?usp=drive_link?embedded=true"
+                    },
                     title="Week 2 Team Activities and Documentation",
+                    loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
@@ -546,15 +597,16 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
+                fh.P(fh.B(fh.U("1/14/25"))),
                 fh.P(
-                    fh.B(fh.U("1/14/25")),
-                ),
-                fh.P(
-                    "This is my first choice partner because I really enjoy working on AI, especially when applied to healthcare.",
+                    "This is my first choice partner because I really enjoy working on AI, especially when applied to healthcare."
                 ),
                 fh.Iframe(
-                    src="https://docs.google.com/document/d/14YZgGb4Hw2yzWcnKXt-fEAJYrAUGvkSgd10AhLYwkW4/edit?usp=drive_link?embedded=true",
+                    **{
+                        "data-src": "https://docs.google.com/document/d/14YZgGb4Hw2yzWcnKXt-fEAJYrAUGvkSgd10AhLYwkW4/edit?usp=drive_link?embedded=true"
+                    },
                     title="Andrew's CP Research",
+                    loading="lazy",
                     cls="max-w-60 max-h-60 object-contain",
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
@@ -653,9 +705,7 @@ def get_app():  # noqa: C901
         )
 
     @f_app.get("/blog")
-    def blog(
-        session,
-    ):
+    def blog(session):
         return (
             fh.Title(NAME + " | " + "blog"),
             fh.Div(
@@ -664,6 +714,25 @@ def get_app():  # noqa: C901
                 toast_container(),
                 footer(),
                 cls=page_cls,
+            ),
+            fh.Script(
+                """
+document.addEventListener("DOMContentLoaded", function() {
+    const lazyIframes = document.querySelectorAll("iframe[data-src]");
+    const iframeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target;
+                iframe.src = iframe.getAttribute("data-src");
+                observer.unobserve(iframe);
+            }
+        });
+    });
+    lazyIframes.forEach(iframe => {
+        iframeObserver.observe(iframe);
+    });
+});
+"""
             ),
         )
 
