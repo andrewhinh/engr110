@@ -288,13 +288,51 @@ def get_app():  # noqa: C901
                 cls="md:w-2/3 justify-center " + page_ctnt_cls,
             ),
             fh.Div(
+                fh.P(fh.B(fh.U("3/18/25"))),
+                fh.Ul(
+                    fh.Li("Completed final report."),
+                    fh.Li("Completed 1 slide summary."),
+                    fh.Li("Completed team evals for all team members."),
+                ),
+                fh.P(fh.B(fh.U("Andrew:"))),
+                fh.Ul(
+                    fh.Li("Completed 1 slide summary."),
+                    fh.Li("Updated final report results and appendix section based on draft feedback."),
+                    fh.Li("Completed individual reflection."),
+                    fh.Li("Updated the eFolio's home and blog page with new information."),
+                ),
+                fh.Iframe(
+                    **{
+                        "data-src": "https://docs.google.com/presentation/d/18aCpF0gqmMGF1dudODnyiuFgWfeV_EY3i1880GfrnvU/edit?usp=sharing?embedded=true"
+                    },
+                    title="Week 10 - 1 Slide Summary",
+                    loading="lazy",
+                    cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
+                ),
+                fh.Iframe(
+                    **{
+                        "data-src": "https://docs.google.com/document/d/1ZIRdNGs8wZ3k0xuu9e7ILhpco6xCXsrMKdxTFggTcro/edit?usp=sharing?embedded=true"
+                    },
+                    title="Week 10: Andrew's Reflection",
+                    loading="lazy",
+                    cls="w-full h-svh",
+                    hx_indicator="#spinner",
+                    hx_trigger="revealed",
+                ),
+                
+                cls="md:w-2/3 " + page_ctnt_cls,
+            ),
+            fh.Div(
                 fh.P(fh.B(fh.U("3/11/25"))),
                 fh.Ul(
-                    fh.Li("Completed final report and presentation."),
+                    fh.Li("Completed final presentation and draft of final report."),
                     fh.Li("Updated our Gantt chart."),
                 ),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
+                    fh.Li("Completed results sections of final presentation."),
                     fh.Li("Completed results and appendix sections of final report."),
                     fh.Li("Updated the eFolio's home and blog page with new information."),
                 ),
@@ -302,7 +340,7 @@ def get_app():  # noqa: C901
                     **{
                         "data-src": "https://docs.google.com/presentation/d/1tbuMEgGKxdQRsnHvGZwfdjJNx-PwyOAQwCH-3cffeWo/edit?usp=sharing?embedded=true"
                     },
-                    title="Week 9 Final Presenation",
+                    title="Week 9 Final Presentation",
                     loading="lazy",
                     cls="w-full h-svh",
                     hx_indicator="#spinner",
@@ -756,7 +794,7 @@ IMAGE = (
 )
 MINUTES = 60  # seconds
 FE_TIMEOUT = 5 * MINUTES
-FE_CONTAINER_IDLE_TIMEOUT = 15 * MINUTES
+FE_CONTAINER_IDLE_TIMEOUT = 1 * MINUTES
 FE_ALLOW_CONCURRENT_INPUTS = 1000  # max
 
 APP_NAME = f"{NAME}-frontend"
