@@ -176,7 +176,9 @@ def get_app():  # noqa: C901
                     hx_trigger="load",
                     cls="w-full object-contain",
                 ),
-                fh.P("Check out the links above in the navigation bar for more information."),
+                fh.P(
+                    "Check out the links above in the navigation bar for more information."
+                ),
                 cls="md:w-1/3 justify-center " + page_ctnt_cls,
             ),
             hx_indicator="#spinner",
@@ -263,7 +265,11 @@ def get_app():  # noqa: C901
                         cls=link_cls,
                     ),
                     """ (MHF) is a foundation working to decrease the rate of childbirth injuries suffered by women in sub-Saharan Africa. They work directly with these women through local healthcare clinics which they provide funding, allowing for both a higher quality of care and numerous classes educating women on pre and postnatal care. This holistic approach allows for both in-the-moment mitigation of injuries as well as long-term benefits by teaching preventative measures and educating the community as a whole on childbirth injuries. Educational outreach such as this is also key to the reintegration of women with previous childbirth injuries, as without proper care and information these women would continue to suffer. MHF also works with other local organizations such as the """,
-                    fh.A("Terrewode Women's Hospital", href="https://terrewode.org/", cls=link_cls),
+                    fh.A(
+                        "Terrewode Women's Hospital",
+                        href="https://terrewode.org/",
+                        cls=link_cls,
+                    ),
                     " in Uganda and ",
                     fh.A("Fistula e.V", href="https://www.fistula.de/", cls=link_cls),
                     " which both share similar goals of improving maternal health in sub-Saharan Africa. ",
@@ -297,9 +303,13 @@ def get_app():  # noqa: C901
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
                     fh.Li("Completed 1 slide summary."),
-                    fh.Li("Updated final report results and appendix section based on draft feedback."),
+                    fh.Li(
+                        "Updated final report results and appendix section based on draft feedback."
+                    ),
                     fh.Li("Completed individual reflection."),
-                    fh.Li("Updated the eFolio's home and blog page with new information."),
+                    fh.Li(
+                        "Updated the eFolio's home and blog page with new information."
+                    ),
                 ),
                 fh.Iframe(
                     **{
@@ -321,7 +331,6 @@ def get_app():  # noqa: C901
                     hx_indicator="#spinner",
                     hx_trigger="revealed",
                 ),
-                
                 cls="md:w-2/3 " + page_ctnt_cls,
             ),
             fh.Div(
@@ -334,7 +343,9 @@ def get_app():  # noqa: C901
                 fh.Ul(
                     fh.Li("Completed results sections of final presentation."),
                     fh.Li("Completed results and appendix sections of final report."),
-                    fh.Li("Updated the eFolio's home and blog page with new information."),
+                    fh.Li(
+                        "Updated the eFolio's home and blog page with new information."
+                    ),
                 ),
                 fh.Iframe(
                     **{
@@ -403,16 +414,22 @@ def get_app():  # noqa: C901
             fh.Div(
                 fh.P(fh.B(fh.U("2/18/25"))),
                 fh.Ul(
-                    fh.Li("Emailed our community partner about the metric we've chosen to use for evaluation."),
+                    fh.Li(
+                        "Emailed our community partner about the metric we've chosen to use for evaluation."
+                    ),
                     fh.Li("Completed eFolio peer reviews."),
                     fh.Li("Updated our Gantt chart."),
                     fh.Li("Completed EDA and baseline evaluation."),
-                    fh.Li("Presented on our project status to the class and our community partner."),
+                    fh.Li(
+                        "Presented on our project status to the class and our community partner."
+                    ),
                 ),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
                     fh.Li("Completed EDA and baseline evaluation of model."),
-                    fh.Li("Emailed the metric we decided to use for evaluating the model to our community partner."),
+                    fh.Li(
+                        "Emailed the metric we decided to use for evaluating the model to our community partner."
+                    ),
                     fh.Li(
                         "Updated the dataset, EDA, and model evaluation slides for the project status update presentation."
                     ),
@@ -449,7 +466,9 @@ def get_app():  # noqa: C901
                     fh.Li("Updated the eFolio's blog page with new information."),
                 ),
                 fh.Ul(
-                    fh.Li("Met with our community partner to discuss ranking of proposed solutions we will use."),
+                    fh.Li(
+                        "Met with our community partner to discuss ranking of proposed solutions we will use."
+                    ),
                     fh.Ul(
                         fh.Li(
                             "We settled on fine-tuning Qwen2.5-VL on the point-prediction task using our proposed dataset.",
@@ -461,7 +480,9 @@ def get_app():  # noqa: C901
                         ),
                         cls="flex flex-col gap-1 p-2",
                     ),
-                    fh.Li("Scheduled a meeting with our community partner to check in on our implementation progress."),
+                    fh.Li(
+                        "Scheduled a meeting with our community partner to check in on our implementation progress."
+                    ),
                     fh.Li("Updated our Gantt chart."),
                     fh.Li("Wrote the introduction for our project report."),
                 ),
@@ -481,7 +502,9 @@ def get_app():  # noqa: C901
                 fh.P(fh.B(fh.U("2/4/25"))),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
-                    fh.Li("Researched majority of solutions to propose to our community partner."),
+                    fh.Li(
+                        "Researched majority of solutions to propose to our community partner."
+                    ),
                     fh.Li("Revised team contract."),
                     fh.Li("Revised and added thoughts to team reflection."),
                     fh.Li("Updated the eFolio's blog page with new information."),
@@ -532,7 +555,11 @@ def get_app():  # noqa: C901
                 fh.Ul(
                     fh.Li(
                         "Researched datasets to propose to our community partner, including ",
-                        fh.A("this dataset", href="https://www.nature.com/articles/s41597-024-03774-3", cls=link_cls),
+                        fh.A(
+                            "this dataset",
+                            href="https://www.nature.com/articles/s41597-024-03774-3",
+                            cls=link_cls,
+                        ),
                         " which we will proceed with for the project.",
                     ),
                     fh.Li("Updated the eFolio's blog page with new information."),
@@ -604,20 +631,30 @@ def get_app():  # noqa: C901
                 fh.P(fh.B(fh.U("1/21/25"))),
                 fh.P(fh.B(fh.U("Andrew:"))),
                 fh.Ul(
-                    fh.Li("Researched a few datasets before the meeting with our community partner."),
+                    fh.Li(
+                        "Researched a few datasets before the meeting with our community partner."
+                    ),
                     fh.Li(
                         "Updated the eFolio to add the partner page, and updated the About us and project pages with new information."
                     ),
-                    fh.Li("Created a new GH repo for all of our work we will share with our community partner."),
-                    fh.Li("Gave initial draft for distributing phases amongst team members."),
+                    fh.Li(
+                        "Created a new GH repo for all of our work we will share with our community partner."
+                    ),
+                    fh.Li(
+                        "Gave initial draft for distributing phases amongst team members."
+                    ),
                 ),
                 fh.Ul(
                     fh.Li(
                         "Scheduled a meeting with our community partner, and drafted questions and curated datasets in preparation."
                     ),
-                    fh.Li("Met with our community partner and collected extensive notes."),
+                    fh.Li(
+                        "Met with our community partner and collected extensive notes."
+                    ),
                     fh.Li("Estimated our project timeline by creating a Gantt chart."),
-                    fh.Li("Created a new GH repo for all of our work we will share with our community partner."),
+                    fh.Li(
+                        "Created a new GH repo for all of our work we will share with our community partner."
+                    ),
                     fh.Li(
                         "Scheduled another meeting with our community partner to discuss the project timeline and next steps."
                     ),
@@ -794,7 +831,7 @@ IMAGE = (
 )
 MINUTES = 60  # seconds
 FE_TIMEOUT = 5 * MINUTES
-FE_CONTAINER_IDLE_TIMEOUT = 1 * MINUTES
+FE_SCALEDOWN_WINDOW = 1 * MINUTES
 FE_ALLOW_CONCURRENT_INPUTS = 1000  # max
 
 APP_NAME = f"{NAME}-frontend"
@@ -806,9 +843,9 @@ app = modal.App(APP_NAME)
 @app.function(
     image=IMAGE,
     timeout=FE_TIMEOUT,
-    container_idle_timeout=FE_CONTAINER_IDLE_TIMEOUT,
-    allow_concurrent_inputs=FE_ALLOW_CONCURRENT_INPUTS,
+    scaledown_window=FE_SCALEDOWN_WINDOW,
 )
+@modal.concurrent(max_inputs=FE_ALLOW_CONCURRENT_INPUTS)
 @modal.asgi_app()
 def modal_get():
     return f_app
